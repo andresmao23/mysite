@@ -1,0 +1,43 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+
+    <title>My primera página web</title>
+</head>
+<body>
+    
+    
+    <nav>
+        <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Conociendo El Bordo</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">História</a></li>
+            <li><a href="#">Sitios turísticos</a></li>
+            <li><a href="#">Contáctenos</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="#"><i class="material-icons">home</i>Inicio</a></li>
+            <li><a href="#"><i class="material-icons">history</i>História</a></li>
+            <li><a href="#"><i class="material-icons">place</i>Sitios turísticos</a></li>
+            <li><a href="#"><i class="material-icons">contact_mail</i>Contáctenos</a></li>
+        </ul>
+        </div>
+    </nav>
+                   
+
+    <!-- js -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>
