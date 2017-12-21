@@ -1,0 +1,98 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- css -->
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+
+    <title>Guía turística |{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+    {% block header %}
+        <nav class="z-depth-4">
+            <div class="nav-wrapper">
+                <a href="{% url 'inicio' %}" class="brand-logo" style="margin-left:0.5em;">Guía Turística</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <!--li>    
+                        <div class="center row">
+                            <div class="col s12 " >
+                                <div class="row" id="topbarsearch">
+                                    <div class="input-field col s6 s12">
+                                        <i class="material-icons prefix">search</i>
+                                        <input type="text" placeholder="Buscar" id="autocomplete-input" class="autocomplete" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>          
+                    </li--> 
+                    <li {% if request.path == '/' %} class="active" {% endif %}><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li {% if request.path == '/nosotros/' %} class="active" {% endif %}><a href="{% url 'nosotros' %}">Nosotros</a></li>
+                    <li {% if request.path == '/sitios/' %} class="active" {% endif %}><a href="{% url 'sitios' %}">Sitios</a></li>
+                    <li {% if request.path == '/contactenos/' %} class="active" {% endif %}><a href="{% url 'contactenos' %}">Contáctenos</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="{% url 'inicio' %}"><i class="material-icons">home</i>Inicio</a></li>
+                    <li><a href="{% url 'nosotros' %}"><i class="material-icons">person</i>Nosotros</a></li>
+                    <li><a href="{% url 'sitios' %}"><i class="material-icons">place</i>Sitios</a></li>
+                    <li><a href="{% url 'contactenos' %}"><i class="material-icons">contact_mail</i>Contáctenos</a></li>
+                </ul>
+            </div>
+        </nav>
+    {% endblock %}
+
+    {% block slider%}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row center">
+                    <img class="responsive-img circle" src="{% static 'img/mao.jpg' %} " width="60px" height="60px">        
+                </div>
+                <div class="row">
+                    <div class="center">
+                    <h5 class="white-text">Andrés Mauricio Caicedo Rendón</h5>
+                    <p class="grey-text text-lighten-4">Soy un entusiasta del desarrollo web y móvil para plataformas android.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container center">
+                © 2017 Copyright Andrés Mauricio Caicedo Rendón <a href="/admin/">Administrador</a>
+                </div>
+            </div>
+        </footer>
+    {% endblock %}
+        
+    {% block fab %}
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red">
+            <i class="large material-icons">people</i>
+            </a>
+            <ul>
+                <li><a class="grey-text text-lighten-3" href="https://www.facebook.com/acaicedo2"><img src="{% static 'img/facebook.png' %}" target="_blank"></a></li>
+                <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/andres-rendon-064aa7b2/"><img src="{% static 'img/linkedin.png' %}" target="_blank"></a></li>
+                <li><a class="grey-text text-lighten-3" href="https://twitter.com/amcaicedo1?lang=es"><img src="{% static 'img/twitter.png' %}" target="_blank"></a></li>
+                <li><a class="grey-text text-lighten-3" href="https://github.com/andresmao23"><img src="{% static 'img/github.png' %}" target="blank"></a></li>
+                <li><a class="grey-text text-lighten-3" href="https://plus.google.com/+AndresMauricioCaicedoRendon"><img src="{% static 'img/google_plus.png' %}" target="blank"></a></li>
+            </ul>
+        </div>
+    {% endblock %}
+
+    <!-- js -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key= AIzaSyD-eA2v4YdB9Nfxw2uBfe8xDtAeNDU5ZDk &callback=initMap"></script>
+</body>
+</html>

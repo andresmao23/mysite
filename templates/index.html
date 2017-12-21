@@ -1,43 +1,40 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% extends 'base.html' %}
 
-    <!-- css -->
-    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+{% block title %}
+    Inicio
+{% endblock %}
 
-    <title>My primera página web</title>
-</head>
-<body>
-    
-    
-    <nav>
-        <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Conociendo El Bordo</a>
-        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">História</a></li>
-            <li><a href="#">Sitios turísticos</a></li>
-            <li><a href="#">Contáctenos</a></li>
-        </ul>
-        <ul class="side-nav" id="mobile-demo">
-            <li><a href="#"><i class="material-icons">home</i>Inicio</a></li>
-            <li><a href="#"><i class="material-icons">history</i>História</a></li>
-            <li><a href="#"><i class="material-icons">place</i>Sitios turísticos</a></li>
-            <li><a href="#"><i class="material-icons">contact_mail</i>Contáctenos</a></li>
-        </ul>
-        </div>
-    </nav>
-                   
+{% block slider%}
+    {% include 'slider.html' %}
+{% endblock %}
 
-    <!-- js -->
-    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/materialize.min.js' %}"></script>
-    <script src="{% static 'js/index.js' %}"></script>
-</body>
-</html>
+{% block content %}
+    <div class="container">   
+        <div class="row">
+            <div class="col s12 m4 l4">
+                <div class="card-panel z-depth-4">
+                    <div class="center"><i class="material-icons content-icons" style="color:green;">android</i></div>
+                    <span class="grey-text">I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                    </span>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card-panel z-depth-4">
+                    <div class="center"><i class="material-icons content-icons" style="color:grey;">thumb_up</i></div>
+                    <span class="grey-text">I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                    </span>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card-panel z-depth-4">
+                    <div class="center"><i class="material-icons content-icons" style="color:firebrick;">flash_on</i></div>
+                    <span class="grey-text">I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                    </span>
+                </div>
+            </div>
+        </div>          
+    </div>            
+{% endblock %}
