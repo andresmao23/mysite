@@ -16,10 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from home import views
+from home.views import SitioList
 
 urlpatterns = [
     url(r'^$', views.index, name='inicio'),
     url(r'^nosotros/', views.nosotros, name='nosotros'),
-    url(r'^sitios/', views.sitios, name='sitios'),
+    url(r'^sitios/', SitioList.as_view(), name='sitios'),
     url(r'^contactenos/', views.contactenos, name='contactenos'),
+    url(r'^contactenos/gracias/', views.gracias, name='gracias'),
 ]
