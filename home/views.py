@@ -22,6 +22,12 @@ def sitios(request):
     context = {}
     return render(request, 'sitios.html', context)
 
+def detalle_sitio(request, id_sitio):
+    sitio = Sitio.objects.get(id=id_sitio)
+    #clima = sitio.ciudad.get_clima_display()
+    context = {'sitio':sitio}
+    return render(request, 'detalle.html', context)
+
 def contactenos(request):
     if request.method=='POST':
         nombre = request.POST['nombre']
@@ -31,10 +37,11 @@ def contactenos(request):
         body_message = "Nombre: " + nombre.upper() + "\n" + "Correo: " + correo + "\n" + "Mensaje: " + mensaje
         
         send_mail('Mensaje de usuario Guía Turística', body_message, 'cmauricio10@gmail.com', ['amcaicedo@unimayor.edu.co'])
-
+        return redirect('gracias')
     context = {}
     return render(request, 'contactenos.html', context)
 
 class SitioList(ListView):
     model = Sitio
     template_name = 'sitios.html'
+    paginate_by = 3

@@ -21,7 +21,8 @@ from home.views import SitioList
 urlpatterns = [
     url(r'^$', views.index, name='inicio'),
     url(r'^nosotros/', views.nosotros, name='nosotros'),
-    url(r'^sitios/', SitioList.as_view(), name='sitios'),
+    url(r'^sitios', SitioList.as_view(), name='sitios'),
     url(r'^contactenos/', views.contactenos, name='contactenos'),
-    url(r'^contactenos/gracias/', views.gracias, name='gracias'),
+    url(r'^gracias/', views.gracias, name='gracias'),
+    url(r'^sitio/detalle/(?P<id_sitio>\d+)$', views.detalle_sitio, name='detalle'),
 ]

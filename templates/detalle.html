@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    Detalle
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div align="center" style="margin-top:2em;">
+            <img class="materialboxed center" width="650" src="/media/{{sitio.imagen }}">
+        </div>
+        <h2 class="grey-text titulos">{{ sitio.nombre }}</h2>
+        <h4 class="grey-text titulos">Descripción:</h4><h4 class="grey-text"><p class="grey-text" align="justify">{{ sitio.descripcion }}</p></h4>
+        <h4 class="grey-text">Ciudad: {{ sitio.ciudad.nombre }}</h4>
+        <h4 class="grey-text">Número de habitantes: {{ sitio.ciudad.habitantes }}</h4>
+        <h4 class="grey-text">Clima: {{ sitio.ciudad.get_clima_display }}</h4>
+        <h4 class="grey-text">Departamento: {{ sitio.ciudad.departamento.nombre }}</h4>
+    </div>
+{% endblock %}
