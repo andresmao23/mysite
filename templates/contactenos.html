@@ -10,20 +10,33 @@
         <div class="row">
             <form class="col s12 m6 l6" method="post" action="" id="form_mail">
                 {% csrf_token %}
-                <div class="row">
+                {% for field in form %}
+                    <div class="row">
+                        <div class="input-field"> 
+                                {% if field.errors %}
+                                <ul>
+                                    <li class="error-messages">{{ field.errors }}</li>
+                                </ul>
+                                {% endif %}                           
+                                {{ field }}
+                                <label for="{{ field.name }}">{{ field.label }}</label>                            
+                        </div>
+                    </div>
+                {% endfor %}
+                <!--div class="row">
                     <div class="input-field">
                         <i class="material-icons prefix">account_circle</i>
                         <input id="icon_prefix" type="text" class="validate" name="nombre">
                         <label for="icon_prefix">Nombre</label>
                     </div>
                 </div>
-                <!--div class="row">
+                <div class="row">
                     <div class="input-field">
                         <i class="material-icons prefix">phone</i>
                         <input id="icon_telephone" type="tel" class="validate">
                         <label for="icon_telephone">Teléfono</label>
                     </div>
-                </div-->
+                </div>
                 <div class="row">
                     <div class="input-field">
                         <i class="material-icons prefix">email</i>
@@ -37,7 +50,7 @@
                         <textarea id="icon_prefix2" class="materialize-textarea" name="mensaje"></textarea>
                         <label for="icon_prefix2">Mensaje</label>
                     </div>
-                </div>
+                </div-->
                 <div class="row col l12">
                     <input type="submit" id="btn_enviar" value="Enviar" class="waves-effect waves-light btn col l12">               
                 </div>

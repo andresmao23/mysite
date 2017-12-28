@@ -30,15 +30,18 @@ def detalle_sitio(request, id_sitio):
 
 def contactenos(request):
     if request.method=='POST':
-        nombre = request.POST['nombre']
-        correo = request.POST['correo']
-        mensaje = request.POST['mensaje'] 
-
-        body_message = "Nombre: " + nombre.upper() + "\n" + "Correo: " + correo + "\n" + "Mensaje: " + mensaje
-        
-        send_mail('Mensaje de usuario Guía Turística', body_message, 'cmauricio10@gmail.com', ['amcaicedo@unimayor.edu.co'])
-        return redirect('gracias')
-    context = {}
+        form = ContactenosForm(request.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data['nombre']
+            correo = form.cleaned_data['correo']
+            mensaje = form.cleaned_data['mensaje'] 
+            body_message = "Nombre: " + nombre.upper() + "\n" + "Correo: " + correo + "\n" + "Mensaje: " + mensaje
+            send_mail('Mensaje de usuario Guía Turística', body_message, 'cmauricio10@gmail.com', ['amcaicedo@unimayor.edu.co'])
+            return redirect('gracias')
+    else:
+        form = ContactenosForm()
+    
+    context = {'form':form}
     return render(request, 'contactenos.html', context)
 
 class SitioList(ListView):

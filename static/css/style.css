@@ -46,3 +46,7 @@
 .titulos{
   font-weight: bold;
 }
+
+.error-messages{
+  color:red;
+}
